@@ -1,4 +1,7 @@
-﻿{
+{
+  "ConnectionStrings": {
+    "DefaultConnection": "Server=localhost;Initial Catalog=db_blogpessoal;Trusted_Connection=True;TrustServerCertificate=true;MultipleActiveResultSets=True;"
+  },
   "$schema": "https://json.schemastore.org/launchsettings.json",
   "iisSettings": {
     "windowsAuthentication": false,
