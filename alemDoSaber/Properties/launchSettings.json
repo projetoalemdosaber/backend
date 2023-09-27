@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 ﻿{ 
+=======
+﻿{
+>>>>>>> 53d0c1b97a0debabb2373470879d20b3814586bc
   "$schema": "https://json.schemastore.org/launchsettings.json",
   "iisSettings": {
     "windowsAuthentication": false,
