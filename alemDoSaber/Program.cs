@@ -2,6 +2,8 @@
 using FluentValidation;
 using Microsoft.EntityFrameworkCore;
 using RedeSocial.Data;
+using RedeSocial.Model;
+using RedeSocial.Validator;
 
 namespace alemDoSaber
 {

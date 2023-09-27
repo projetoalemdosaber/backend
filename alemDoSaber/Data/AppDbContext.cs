@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using RedeSocial.Model;
 
 namespace RedeSocial.Data
 {
@@ -10,9 +11,6 @@ namespace RedeSocial.Data
         {
             modelBuilder.Entity<Tema>().ToTable("tb_temas");
 
-            _ = modelBuilder.Entity<Tema>()
-                .HasOne(_ => _.Tema)
-                .OnDelete(DeleteBehavior.Cascade);
         }
 
         public DbSet<Tema> Temas { get; set; } = null!;

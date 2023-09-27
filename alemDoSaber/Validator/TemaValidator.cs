@@ -1,5 +1,6 @@
 ﻿using RedeSocial;
 using FluentValidation;
+using RedeSocial.Model;
 
 namespace RedeSocial.Validator
 {
@@ -14,7 +15,7 @@ namespace RedeSocial.Validator
 
             RuleFor(t => t.Assunto)
                .NotEmpty()
-               .MinimumLenght(5)
+               .MinimumLength(5)
                .MaximumLength(255);
         }
     }
