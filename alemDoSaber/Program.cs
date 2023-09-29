@@ -3,6 +3,8 @@ using FluentValidation;
 using Microsoft.EntityFrameworkCore;
 using RedeSocial.Data;
 using RedeSocial.Model;
+using RedeSocial.Service.Implements;
+using RedeSocial.Service;
 using RedeSocial.Validator;
 
 namespace alemDoSaber
@@ -30,6 +32,7 @@ namespace alemDoSaber
 
             //Registrar a Validações das Entidades
             builder.Services.AddTransient<IValidator<Tema>, TemaValidator>();
+            builder.Services.AddScoped<ITemaService, TemaService>();
 
             // Add services(Service) to the container.
 
