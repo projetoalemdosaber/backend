@@ -12,22 +12,7 @@ namespace RedeSocial.Service.Implements
         {
             _context = context;
         }
-
-        public async Task<Tema?> Create(Tema tema)
-        {
-            await _context.Temas.AddAsync(tema);
-            await _context.SaveChangesAsync();
-
-            return tema;
-        }
-
-        public async Task Delete(Tema tema)
-        {
-            _context.Remove(tema);
-            await _context.SaveChangesAsync();
-        }
-
-        public async Task<IEnumerable<Tema>> GetAll()
+       public async Task<IEnumerable<Tema>> GetAll()
         {
             return await _context.Temas
                .ToListAsync();
@@ -55,6 +40,13 @@ namespace RedeSocial.Service.Implements
                 return null;
             }
         }
+        public async Task<Tema?> Create(Tema tema)
+        {
+            await _context.Temas.AddAsync(tema);
+            await _context.SaveChangesAsync();
+
+            return tema;
+        }
 
         public async Task<Tema?> Update(Tema tema)
         {
@@ -71,5 +63,12 @@ namespace RedeSocial.Service.Implements
 
             return tema;
         }
+
+        public async Task Delete(Tema tema)
+            {
+                _context.Remove(tema);
+                await _context.SaveChangesAsync();
+            }
+        }
     }
-}
+

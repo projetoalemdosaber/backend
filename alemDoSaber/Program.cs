@@ -15,22 +15,22 @@ namespace alemDoSaber
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            //quando for fazer a descerialização do objeto não fazer um loop infinito
+           
             builder.Services.AddControllers()
                 .AddNewtonsoftJson(options =>
                 {
                     options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
                 });
 
-            //Conecção com o Banco de Dados 
+           
             var connectionString = builder.Configuration.GetConnectionString("DefaultConnection"); 
 
-            //estou utilizando a conecção
+            
             builder.Services.AddDbContext<AppDbContext>(options =>
                     options.UseSqlServer(connectionString)
             );
 
-            //Registrar a Validações das Entidades
+            
             builder.Services.AddTransient<IValidator<Tema>, TemaValidator>();
             builder.Services.AddScoped<ITemaService, TemaService>();
 

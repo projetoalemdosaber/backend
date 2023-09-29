@@ -11,6 +11,7 @@ namespace RedeSocial.Validator
         {
             RuleFor(t => t.Descricao)
                 .NotEmpty()
+                .MinimumLength(10)
                 .MaximumLength(2000);
 
             RuleFor(t => t.Assunto)
