@@ -396,3 +396,8 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+# JetBrains Rider
+*.sln.iml
+/alemDoSaber/Properties/launchSettings.json
+/alemDoSaber/appsettings.json
+
