@@ -14,5 +14,6 @@ namespace RedeSocial.Data
         }
 
         public DbSet<Tema> Temas { get; set; } = null!;
+        public object Postagens { get; internal set; }
     }
 }
