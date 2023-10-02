@@ -51,7 +51,7 @@ namespace RedeSocial.Service.Implements
         {
             var Data = await _context.Postagens
                  .Include(p => p.Tema)
-                 .Where(p => DateTimeOffset.Compare(p.DataLancamento, dataFinal) <= 0 && DateTimeOffset.Compare(dataInicial, p.DataLancamento) >= 0)
+                 .Where(p => DateTimeOffset.Compare(p.DataLancamento, dataFinal) <= 0 && DateTimeOffset.Compare(p.DataLancamento, dataInicial) >= 0)
                 .ToListAsync();
 
             return Data;

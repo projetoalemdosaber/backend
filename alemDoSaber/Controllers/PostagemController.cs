@@ -44,8 +44,9 @@ namespace RedeSocial.Controllers
         [HttpGet("data/{dataInicial}/data2/{dataFinal}")]
         public async Task<ActionResult> GetByData(DateTimeOffset dataInicial, DateTimeOffset dataFinal)
         {
-            return Ok(await _postagemService.GetByData(dataInicial, dataFinal));
+           return Ok(await _postagemService.GetByData(dataInicial, dataFinal));
         }
+        
 
 
         [HttpPost]
