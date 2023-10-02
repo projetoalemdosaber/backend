@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using RedeSocial.Data;
+using RedeSocial.Model;
 
 namespace RedeSocial.Service.Implements
 {
@@ -46,11 +47,11 @@ namespace RedeSocial.Service.Implements
             return Postagem;
         }
 
-        public async Task<IEnumerable<Postagem>> GetByData (DateOnly date)
+        public async Task<IEnumerable<Postagem>> GetByData (DateOnly dataInicial, DateOnly dataFinal)
         {
            var Data = await _context.Postagens
                 .Include(p => p.Tema)
-                .Where(p => p.Data == date)
+                .Where(p => p.Data >= dataInicial && p.Data <= dataFinal)
                 .ToListAsync();
 
             return Data;

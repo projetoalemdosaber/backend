@@ -1,4 +1,6 @@
-﻿namespace RedeSocial.Service
+﻿using RedeSocial.Model;
+
+namespace RedeSocial.Service
 {
     public interface IPostagemServive 
     {
@@ -8,7 +10,7 @@
 
         Task<IEnumerable<Postagem>> GetByTitulo (string titulo);
 
-        Task<IEnumerable<Postagem>> GetByData (DateOnly date);
+        Task<IEnumerable<Postagem>> GetByData (DateOnly dataInicial, DateOnly dataFinal);
 
         Task<Postagem?> Create(Postagem postagem);
 
