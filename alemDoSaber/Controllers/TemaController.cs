@@ -67,7 +67,7 @@ namespace RedeSocial.Controllers
         public async Task<ActionResult> Update([FromBody] Tema tema)
         {
             if (tema.Id == 0)
-                return BadRequest("Id da Tema é inválido!");
+                return BadRequest("Id do Tema é inválido!");
 
             var validarTema = await _temaValidator.ValidateAsync(tema);
 
@@ -91,7 +91,7 @@ namespace RedeSocial.Controllers
             var BuscaTema = await _temaService.GetById(id);
 
             if (BuscaTema is null)
-                return NotFound("Tema não foi encontrado!");
+                return NotFound("Tema não encontrado!");
 
             await _temaService.Delete(BuscaTema);
 

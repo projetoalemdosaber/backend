@@ -37,7 +37,7 @@ namespace alemDoSaber
 
 
             builder.Services.AddScoped<ITemaService, TemaService>();
-            builder.Services.AddScoped<IPostagemService, PostagemValidator>();
+            builder.Services.AddScoped<IPostagemService, PostagemService>();
 
             // Add services(Service) to the container.
 

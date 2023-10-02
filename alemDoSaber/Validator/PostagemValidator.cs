@@ -1,4 +1,5 @@
 ﻿using FluentValidation;
+using RedeSocial.Model;
 
 namespace RedeSocial.Validator
 {
