@@ -18,13 +18,9 @@ namespace RedeSocial.Validator
                 .MaximumLength(1000);
 
             RuleFor(p => p.Foto)
-                .NotEmpty()
-                .MinimumLength(10)
                 .MaximumLength(2000);
 
             RuleFor(p => p.Video)
-                .NotEmpty()
-                .MinimumLength(10)
                 .MaximumLength(1000);
 
             RuleFor(p => p.Curtir)

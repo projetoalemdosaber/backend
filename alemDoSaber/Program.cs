@@ -60,7 +60,6 @@ namespace alemDoSaber
 
             var app = builder.Build();
 
-            //Criar o Banco de Dados e as Tabelas
             using (var scope = app.Services.CreateAsyncScope()) 
             {
                 var dbContext = scope.ServiceProvider.GetRequiredService<AppDbContext>();
@@ -75,7 +74,6 @@ namespace alemDoSaber
                 app.UseSwaggerUI();
             }
             
-            //Inicializa o CORS
             app.UseCors("MyPolicy");
 
             app.UseAuthorization();

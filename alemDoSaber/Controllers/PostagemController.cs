@@ -41,8 +41,8 @@ namespace RedeSocial.Controllers
             return Ok(await _postagemService.GetByTitulo(titulo));
         }
 
-        [HttpGet("data/{dataInicial}/{dataFinal}")]
-        public async Task<ActionResult> GetByData(DateTime dataInicial, DateTime dataFinal)
+        [HttpGet("data/{dataInicial}/data2/{dataFinal}")]
+        public async Task<ActionResult> GetByData(DateTimeOffset dataInicial, DateTimeOffset dataFinal)
         {
             return Ok(await _postagemService.GetByData(dataInicial, dataFinal));
         }

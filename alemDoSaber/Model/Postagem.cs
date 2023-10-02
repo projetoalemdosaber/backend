@@ -6,7 +6,7 @@ using alemDoSaber.Util;
 
 namespace RedeSocial.Model
 {
-    public class Postagem
+    public class Postagem : Auditable
     {
         [Key] 
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)] 
@@ -36,10 +36,6 @@ namespace RedeSocial.Model
 
         [Column(TypeName = "int")]
         public int Indico { get; set; }
-
-        [Column(TypeName = "date")]
-        [JsonConverter(typeof(DateOnlyJsonConverter))]
-        public DateTime DataLancamento { get; set; }
 
         public virtual Tema? Tema { get; set; }
 

@@ -10,7 +10,7 @@ namespace RedeSocial.Service
 
         Task<IEnumerable<Postagem>> GetByTitulo (string titulo);
 
-        Task<IEnumerable<Postagem>> GetByData (DateTime dataInicial, DateTime dataFinal);
+        Task<IEnumerable<Postagem>> GetByData (DateTimeOffset dataInicial, DateTimeOffset dataFinal);
 
         Task<Postagem?> Create(Postagem postagem);
 

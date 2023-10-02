@@ -47,11 +47,11 @@ namespace RedeSocial.Service.Implements
             return Postagem;
         }
 
-        public async Task<IEnumerable<Postagem>> GetByData (DateTime dataInicial, DateTime dataFinal)
+        public async Task<IEnumerable<Postagem>> GetByData (DateTimeOffset dataInicial, DateTimeOffset dataFinal)
         {
-           var Data = await _context.Postagens
-                .Include(p => p.Tema)
-                .Where(p => DateTime.Compare(p.DataLancamento, dataFinal) <= 0 && DateTime.Compare(dataInicial, p.DataLancamento) >= 0)
+            var Data = await _context.Postagens
+                 .Include(p => p.Tema)
+                 .Where(p => DateTimeOffset.Compare(p.DataLancamento, dataFinal) <= 0 && DateTimeOffset.Compare(dataInicial, p.DataLancamento) >= 0)
                 .ToListAsync();
 
             return Data;

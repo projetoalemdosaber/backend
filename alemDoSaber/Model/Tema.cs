@@ -16,6 +16,7 @@ namespace RedeSocial.Model
         [StringLength(2000)]
         public string Descricao { get; set; } = string.Empty;
 
+        [InverseProperty("Tema")]
         public virtual ICollection<Postagem>? Postagem { get; set; }
     }
 }
