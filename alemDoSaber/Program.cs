@@ -32,7 +32,12 @@ namespace alemDoSaber
 
             
             builder.Services.AddTransient<IValidator<Tema>, TemaValidator>();
+            builder.Services.AddTransient<IValidator<Postagem>, PostagemValidator>();
+            builder.Services.AddTransient<IValidator<User>, UserValidator>();
+
+
             builder.Services.AddScoped<ITemaService, TemaService>();
+            builder.Services.AddScoped<IPostagemService, PostagemValidator>();
 
             // Add services(Service) to the container.
 

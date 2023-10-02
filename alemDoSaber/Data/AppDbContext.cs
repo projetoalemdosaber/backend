@@ -10,9 +10,25 @@ namespace RedeSocial.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Tema>().ToTable("tb_temas");
+            modelBuilder.Entity<Postagem>().ToTable("tb_postagens");
+            modelBuilder.Entity<User>().ToTable("tb_postagens");
+
+            _ = modelBuilder.Entity<Postagem>()
+                .HasOne(_ => _.Tema)
+                .WithMany(c => c.Postagem)
+                .HasForeignKey("TemaId")
+                .OnDelete(DeleteBehavior.Cascade);
+
+            _ = modelBuilder.Entity<Postagem>()
+                .HasOne(_ => _.User)
+                .WithMany(c => c.Postagem)
+                .HasForeignKey("UserId")
+                .OnDelete(DeleteBehavior.Cascade);
 
         }
 
         public DbSet<Tema> Temas { get; set; } = null!;
+        public DbSet<Postagem> Postagens { get; set; } = null!;
+        public DbSet<User> Users { get; set; } = null!;
     }
 }
