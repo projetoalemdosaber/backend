@@ -24,14 +24,14 @@ namespace RedeSocial.Controllers
                 _authService = authService;
             }
             [Authorize]
-            [HttpGet("all")]
+            [HttpGet("todos")]
             public async Task<ActionResult> GetAll()
             {
                 return Ok(await _userService.GetAll());
             }
 
             [Authorize]
-            [HttpGet("{id}")]
+            [HttpGet("id/{id}")]
             public async Task<ActionResult> GetById(long id)
             {
                 var Resposta = await _userService.GetById(id);
@@ -45,7 +45,7 @@ namespace RedeSocial.Controllers
             }
 
             [Authorize]
-            [HttpGet("usuarios/{usuario}")]
+            [HttpGet("email/{usuarios}")]
             public async Task<ActionResult> GetByUsuario(string usuario)
             {
                 var Resposta = await _userService.GetByUsuario(usuario);
@@ -106,7 +106,7 @@ namespace RedeSocial.Controllers
                 var Resposta = await _authService.Autenticar(usuarioLogin);
 
                 if (Resposta is null)
-                    return Unauthorized("Usuário e/ou Senha inválidos!");
+                    return Unauthorized("Usuário e/ou senha inválidos!");
 
                 return Ok(Resposta);
             }
