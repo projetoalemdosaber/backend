@@ -1,10 +1,12 @@
 ﻿using FluentValidation;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using RedeSocial.Model;
 using RedeSocial.Service;
 
 namespace RedeSocial.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("~/postagens")]
     public class PostagemController : ControllerBase

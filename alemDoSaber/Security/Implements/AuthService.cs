@@ -1,4 +1,6 @@
 ﻿using Microsoft.IdentityModel.Tokens;
+using RedeSocial.Model;
+using RedeSocial.Service;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
@@ -14,14 +16,14 @@ namespace RedeSocial.Security.Implements
             _userService = userService;
         }
 
-        public Task<UserLogin?> Autenticar(UserLogin userLogin)
+        public async Task<UserLogin?> Autenticar(UserLogin userLogin)
         {
             string FotoDefault = "https://i.imgur.com/I8MfmC8.png";
 
             if (userLogin is null || string.IsNullOrEmpty(userLogin.Usuario) || string.IsNullOrEmpty(userLogin.Usuario))
                 return null;
 
-            var BuscarUsuario = await _userService.GetByUser(userLogin.Usuario);
+            var BuscarUsuario = await _userService.GetByUsuario(userLogin.Usuario);
 
             if (BuscarUsuario is null)
                 return null;

@@ -11,7 +11,7 @@ namespace RedeSocial.Data
         {
             modelBuilder.Entity<Tema>().ToTable("tb_temas");
             modelBuilder.Entity<Postagem>().ToTable("tb_postagens");
-            modelBuilder.Entity<User>().ToTable("tb_user");
+            modelBuilder.Entity<User>().ToTable("tb_usuarios");
 
             _ = modelBuilder.Entity<Postagem>()
                 .HasOne(_ => _.Tema)

@@ -7,9 +7,9 @@ using RedeSocial.Service;
 using RedeSocial.Validator;
 using RedeSocial.Security;
 using RedeSocial.Security.Implements;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 namespace alemDoSaber
 {

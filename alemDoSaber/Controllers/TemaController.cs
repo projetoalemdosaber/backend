@@ -1,11 +1,12 @@
 ﻿using FluentValidation;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using RedeSocial.Model;
 using RedeSocial.Service;
 
 namespace RedeSocial.Controllers
 {
-
+    [Authorize]
     [Route("~/temas")]
     [ApiController]
     public class TemaController : ControllerBase

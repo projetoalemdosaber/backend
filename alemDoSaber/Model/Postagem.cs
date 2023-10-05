@@ -22,20 +22,20 @@ namespace RedeSocial.Model
 
         [Column(TypeName = "varchar")] 
         [StringLength(5000)]
-        public string Foto { get; set; } = string.Empty;
+        public string? Foto { get; set; } = string.Empty;
 
         [Column(TypeName = "varchar")]
         [StringLength(5000)]
-        public string Video { get; set; } = string.Empty;
+        public string? Video { get; set; } = string.Empty;
 
         [Column(TypeName = "int")]
-        public int Curtir { get; set; } 
+        public int Curtir { get; set; } = 0;
 
         [Column(TypeName = "int")]
-        public int Amei { get; set; }
+        public int Amei { get; set; } = 0;
 
         [Column(TypeName = "int")]
-        public int Indico { get; set; }
+        public int Indico { get; set; } = 0;
 
         public virtual Tema? Tema { get; set; }
 
