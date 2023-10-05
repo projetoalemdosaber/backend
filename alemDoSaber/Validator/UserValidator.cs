@@ -16,16 +16,16 @@ namespace RedeSocial.Validator
                 .NotEmpty()
                 .WithMessage("E-mail obrigatório!")
                 .EmailAddress()
-                .WithMessage("É necessário colocar um e-mail valido!");
+                .WithMessage("É necessário colocar um e-mail válido!");
 
             RuleFor(u => u.Foto)
                 .NotEmpty()
                 .MinimumLength(5)
-                .MaximumLength(2000);
+                .MaximumLength(5000);
 
             RuleFor(u => u.Senha)
                 .NotEmpty()
-                .MinimumLength(5)
+                .MinimumLength(8)
                 .MaximumLength(100);
         }
     }
