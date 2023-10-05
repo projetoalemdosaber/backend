@@ -48,7 +48,7 @@ namespace RedeSocial.Controllers
         }
 
         [Authorize]
-        [HttpGet("email/{usuarios}")]
+        [HttpGet("email/{usuario}")]
         public async Task<ActionResult> GetByUsuario(string usuario)
         {
             var Resposta = await _userService.GetByUsuario(usuario);
