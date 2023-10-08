@@ -4,6 +4,7 @@ using RedeSocial.Model;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection.Metadata.Ecma335;
+using static System.Net.WebRequestMethods;
 
 
 namespace RedeSocial.Service.Implements
@@ -11,6 +12,7 @@ namespace RedeSocial.Service.Implements
     public class UserService : IUserService
     {
 
+        private readonly string fotoPadrao = "https://imgur.com/a/N38LGJU";
         private readonly AppDbContext _context;
 
         public UserService(AppDbContext context)
@@ -58,8 +60,6 @@ namespace RedeSocial.Service.Implements
             {
                 return null;
             }
-
-            //return NoContent();
         }
 
         public async Task<User?> Create(User usuario)
@@ -70,7 +70,7 @@ namespace RedeSocial.Service.Implements
                 return null;
 
             if (usuario.Foto is null || usuario.Foto == "")
-                usuario.Foto = "https://i.imgur.com/I8MfmC8.png";
+                usuario.Foto = fotoPadrao;
 
             usuario.Senha = BCrypt.Net.BCrypt.HashPassword(usuario.Senha, workFactor: 10);
 
@@ -89,7 +89,7 @@ namespace RedeSocial.Service.Implements
                 return null;
 
             if (usuario.Foto is null || usuario.Foto == "")
-                usuario.Foto = "https://i.imgur.com/I8MfmC8.png";
+                usuario.Foto = fotoPadrao;
 
             usuario.Senha = BCrypt.Net.BCrypt.HashPassword(usuario.Senha, workFactor: 10);
 
