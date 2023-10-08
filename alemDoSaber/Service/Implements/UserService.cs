@@ -12,7 +12,7 @@ namespace RedeSocial.Service.Implements
     public class UserService : IUserService
     {
 
-        private readonly string fotoPadrao = "https://imgur.com/a/N38LGJU";
+        private readonly string fotoPadrao = "https://i.imgur.com/xv5QpxNh.jpg";
         private readonly AppDbContext _context;
 
         public UserService(AppDbContext context)
