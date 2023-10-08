@@ -19,8 +19,6 @@ namespace RedeSocial.Validator
                 .WithMessage("É necessário colocar um e-mail válido!");
 
             RuleFor(u => u.Foto)
-                .NotEmpty()
-                .MinimumLength(5)
                 .MaximumLength(5000);
 
             RuleFor(u => u.Senha)

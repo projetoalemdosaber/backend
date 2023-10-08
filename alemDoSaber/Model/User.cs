@@ -31,6 +31,7 @@ namespace RedeSocial.Model
         [StringLength(255)]
         public string Senha { get; set; } = string.Empty;
 
+        [InverseProperty("User")]
         public virtual ICollection<Postagem>? Postagem { get; set; }
     }
 }
