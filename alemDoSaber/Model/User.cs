@@ -1,5 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
+using alemDoSaber.Util;
+using Newtonsoft.Json;
 
 namespace RedeSocial.Model
 {
@@ -20,6 +22,10 @@ namespace RedeSocial.Model
         [Column(TypeName = "varchar")]
         [StringLength(5000)]
         public string Foto { get; set; } = string.Empty;
+
+        [Column(TypeName = "date")]
+        [JsonConverter(typeof(DateOnlyJsonConverter))]
+        public DateTime DataNascimento { get; set; }
 
         [Column(TypeName = "varchar")]
         [StringLength(255)]

@@ -27,6 +27,11 @@ namespace RedeSocial.Validator
                 .NotEmpty()
                 .MinimumLength(8)
                 .MaximumLength(100);
+
+            RuleFor(u => u.DataNascimento)
+                .NotEmpty()
+                .GreaterThanOrEqualTo(u => DateTime.Today.AddYears(-120)).WithMessage("Idade incorreta, adicione uma idade válida!")
+                .LessThanOrEqualTo(u => DateTime.Today.AddYears(-13)).WithMessage("Menores de 13 anos não podem se cadastrar na plataforma.");
         }
     }
 }

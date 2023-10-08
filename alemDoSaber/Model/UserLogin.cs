@@ -10,6 +10,8 @@
 
         public string Senha { get; set; } = string.Empty;
 
+        public DateTime DataNascimento { get; set; }
+
         public string? Foto { get; set; } = string.Empty;
 
         public string Token { get; set; } = string.Empty;

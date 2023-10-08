@@ -29,13 +29,13 @@ namespace RedeSocial.Model
         public string? Video { get; set; } = string.Empty;
 
         [Column(TypeName = "int")]
-        public int Curtir { get; set; } = 0;
+        public int? Curtir { get; set; } = 0;
 
         [Column(TypeName = "int")]
-        public int Amei { get; set; } = 0;
+        public int? Amei { get; set; } = 0;
 
         [Column(TypeName = "int")]
-        public int Indico { get; set; } = 0;
+        public int? Indico { get; set; } = 0;
 
         public virtual Tema? Tema { get; set; }
 
