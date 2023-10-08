@@ -23,18 +23,6 @@ namespace RedeSocial.Validator
             RuleFor(p => p.Video)
                 .MaximumLength(1000);
 
-            RuleFor(p => p.Curtir)
-                .NotEmpty()
-                .GreaterThanOrEqualTo(0);
-
-            RuleFor(p => p.Amei)
-                .NotEmpty()
-                .GreaterThanOrEqualTo(0);
-
-            RuleFor(p => p.Indico)
-                .NotEmpty()
-                .GreaterThanOrEqualTo(0);
-
         }
     }
 }

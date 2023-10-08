@@ -67,6 +67,45 @@ namespace RedeSocial.Controllers
             return CreatedAtAction(nameof(GetById), new { id = postagem.Id }, postagem);
         }
 
+        [HttpPut("curtir/{id}")]
+        public async Task<ActionResult> Curtir(long id)
+        {
+            var Resposta = await _postagemService.Curtir(id);
+
+            if (Resposta is null)
+            {
+                return NotFound("Postagem não encontrada!");
+            }
+
+            return Ok(Resposta);
+        }
+
+        [HttpPut("amei/{id}")]
+        public async Task<ActionResult> Amei(long id)
+        {
+            var Resposta = await _postagemService.Amei(id);
+
+            if (Resposta is null)
+            {
+                return NotFound("Postagem não encontrada!");
+            }
+
+            return Ok(Resposta);
+        }
+
+        [HttpPut("indico/{id}")]
+        public async Task<ActionResult> Indico(long id)
+        {
+            var Resposta = await _postagemService.Indico(id);
+
+            if (Resposta is null)
+            {
+                return NotFound("Postagem não encontrada!");
+            }
+
+            return Ok(Resposta);
+        }
+
         [HttpPut]
         public async Task<ActionResult> Update([FromBody] Postagem postagem)
         {

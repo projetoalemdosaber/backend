@@ -14,6 +14,12 @@ namespace RedeSocial.Service
 
         Task<Postagem?> Create(Postagem postagem);
 
+        Task<Postagem?> Curtir(long id);
+
+        Task<Postagem?> Amei(long id);
+
+        Task<Postagem?> Indico(long id);
+
         Task<Postagem?> Update(Postagem postagem);
 
         Task Delete(Postagem postagem);

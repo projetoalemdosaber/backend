@@ -94,6 +94,60 @@ namespace RedeSocial.Service.Implements
             return postagem;
         }
 
+        public async Task<Postagem?> Curtir(long id)
+        {
+            var Postagem = await _context.Postagens
+             .Include(p => p.Tema)
+             .FirstOrDefaultAsync(p => p.Id == id);
+
+            if (Postagem is null)
+                return null;
+
+            Postagem.Curtir += 1;
+
+            _context.Update(Postagem);
+            await _context.SaveChangesAsync();
+
+            return Postagem;
+
+        }
+
+        public async Task<Postagem?> Amei(long id)
+        {
+            var Postagem = await _context.Postagens
+             .Include(p => p.Tema)
+             .FirstOrDefaultAsync(p => p.Id == id);
+
+            if (Postagem is null)
+                return null;
+
+            Postagem.Amei += 1;
+
+            _context.Update(Postagem);
+            await _context.SaveChangesAsync();
+
+            return Postagem;
+
+        }
+
+        public async Task<Postagem?> Indico(long id)
+        {
+            var Postagem = await _context.Postagens
+             .Include(p => p.Tema)
+             .FirstOrDefaultAsync(p => p.Id == id);
+
+            if (Postagem is null)
+                return null;
+
+            Postagem.Indico += 1;
+
+            _context.Update(Postagem);
+            await _context.SaveChangesAsync();
+
+            return Postagem;
+
+        }
+
         public async Task<Postagem?> Update(Postagem postagem)
         {
 
