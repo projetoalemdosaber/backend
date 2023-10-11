@@ -18,7 +18,7 @@ namespace RedeSocial.Security.Implements
 
         public async Task<UserLogin?> Autenticar(UserLogin userLogin)
         {
-            //string FotoDefault = "https://imgur.com/a/N38LGJU";
+            string FotoPadrao = "https://imgur.com/a/N38LGJU";
 
             if (userLogin is null || string.IsNullOrEmpty(userLogin.Usuario) || string.IsNullOrEmpty(userLogin.Usuario))
                 return null;
@@ -48,8 +48,7 @@ namespace RedeSocial.Security.Implements
 
             userLogin.Id = BuscarUsuario.Id;
             userLogin.Nome = BuscarUsuario.Nome;
-            //userLogin.Foto = BuscarUsuario.Foto is null ? FotoDefault : BuscarUsuario.Foto;
-            userLogin.Foto = BuscarUsuario.Foto;
+            userLogin.Foto = BuscarUsuario.Foto is null ? FotoPadrao : BuscarUsuario.Foto;
             userLogin.Token = "Bearer " + tokenHandler.WriteToken(token).ToString();
             userLogin.DataNascimento = BuscarUsuario.DataNascimento;
             userLogin.Senha = "";

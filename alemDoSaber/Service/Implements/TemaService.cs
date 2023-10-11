@@ -21,7 +21,7 @@ namespace RedeSocial.Service.Implements
         public async Task<IEnumerable<Tema>> GetByAssunto(string assunto)
         {
             var Tema = await _context.Temas
-                         .Where(d => d.Assunto.Contains(assunto))
+                         .Where(d => d.Assunto.ToUpper().Contains(assunto.ToUpper()))
                          .ToListAsync();
             return Tema;
         }

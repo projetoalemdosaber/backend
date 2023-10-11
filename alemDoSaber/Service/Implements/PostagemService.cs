@@ -16,6 +16,7 @@ namespace RedeSocial.Service.Implements
         public async Task<IEnumerable<Postagem>> GetAll()
         {
             return await _context.Postagens
+                .AsNoTracking()
                 .Include(u => u.User)
                 .Include(p => p.Tema)
                 .ToListAsync();
@@ -42,17 +43,19 @@ namespace RedeSocial.Service.Implements
         public async Task<IEnumerable<Postagem>> GetByTitulo(string titulo)
         {
             var Postagem = await _context.Postagens
+                .AsNoTracking()
                 .Include(p => p.Tema)
                 .Include(p => p.User)
-                .Where(p => p.Titulo.Contains(titulo))
+                .Where(p => p.Titulo.ToUpper().Contains(titulo.ToUpper()))
                 .ToListAsync();
 
             return Postagem;
         }
 
-        public async Task<IEnumerable<Postagem>> GetByData (DateTimeOffset dataInicial, DateTimeOffset dataFinal)
+        public async Task<IEnumerable<Postagem>> GetByData(DateTimeOffset dataInicial, DateTimeOffset dataFinal)
         {
             var Data = await _context.Postagens
+                .AsNoTracking()
                  .Include(p => p.Tema)
                  .Include(p => p.User)
                  .Where(p => DateTimeOffset.Compare(p.DataLancamento, dataFinal) <= 0 && DateTimeOffset.Compare(p.DataLancamento, dataInicial) >= 0)
@@ -67,27 +70,27 @@ namespace RedeSocial.Service.Implements
             {
                 var BuscaTema = await _context.Temas.FindAsync(postagem.Tema.Id);
 
-                if (BuscaTema is null )
+                if (BuscaTema is null)
                 {
                     return null;
                 }
-                
+
                 postagem.Tema = BuscaTema;
-               
+
             }
-            
-            if(postagem.User is not null)
+
+            if (postagem.User is not null)
             {
                 var BuscaUser = _context.Users.FirstOrDefault(p => p.Id == postagem.User.Id);
-                
+
                 if (BuscaUser is null)
                 {
                     return null;
                 }
-                
+
                 postagem.User = BuscaUser;
             }
-            
+
             await _context.Postagens.AddAsync(postagem);
             await _context.SaveChangesAsync();
 

@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using RedeSocial.Model;
+using System.ComponentModel;
 
 namespace RedeSocial.Data
 {
@@ -41,7 +42,7 @@ namespace RedeSocial.Data
             {
                 if (insertedEntry is Auditable auditableEntity)
                 {
-                    auditableEntity.DataLancamento = new DateTimeOffset(DateTime.Now, new TimeSpan(-3, 0, 0));
+                    auditableEntity.DataLancamento = DateTimeOffset.Now;
                 }
             }
 
@@ -53,11 +54,18 @@ namespace RedeSocial.Data
             {
                 if (modifiedEntry is Auditable auditableEntity)
                 {
-                    auditableEntity.DataLancamento = new DateTimeOffset(DateTime.Now, new TimeSpan(-3, 0, 0));
+                    auditableEntity.DataLancamento = DateTimeOffset.Now;
                 }
             }
 
             return base.SaveChangesAsync(cancellationToken);
+        }
+
+        protected override void ConfigureConventions(ModelConfigurationBuilder configurationBuilder)
+        {
+            configurationBuilder
+                .Properties<DateTimeOffset>()
+                .HaveConversion<DateTimeOffsetConverter>();
         }
     }
 }
