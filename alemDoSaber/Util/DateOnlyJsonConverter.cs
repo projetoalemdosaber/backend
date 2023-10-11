@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System.Globalization;
 
-namespace alemDoSaber.Util
+namespace RedeSocial.Util
 {
     public class DateOnlyJsonConverter : Newtonsoft.Json.Converters.IsoDateTimeConverter
     {

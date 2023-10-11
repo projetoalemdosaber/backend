@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
-using alemDoSaber.Util;
+using RedeSocial.Util;
 using Newtonsoft.Json;
 
 namespace RedeSocial.Model

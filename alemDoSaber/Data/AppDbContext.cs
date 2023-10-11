@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using RedeSocial.Model;
-using System.ComponentModel;
+using RedeSocial.Configuration;
 
 namespace RedeSocial.Data
 {
