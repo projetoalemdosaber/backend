@@ -1,6 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using RedeSocial.Model;
-using RedeSocial.Configuration;
 
 namespace RedeSocial.Data
 {
@@ -59,13 +58,6 @@ namespace RedeSocial.Data
             }
 
             return base.SaveChangesAsync(cancellationToken);
-        }
-
-        protected override void ConfigureConventions(ModelConfigurationBuilder configurationBuilder)
-        {
-            configurationBuilder
-                .Properties<DateTimeOffset>()
-                .HaveConversion<DateTimeOffsetConverter>();
         }
     }
 }
