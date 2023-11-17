@@ -44,6 +44,25 @@ namespace RedeSocial.Service.Implements
 
         }
 
+        public async Task<String?> GetByEmail(string usuario)
+        {
+            try
+            {
+                var BuscarUsuario = await _context.Users
+                    .Include(u => u.Postagem)
+                    .Where(u => u.Usuario == usuario)
+                    .FirstOrDefaultAsync();
+
+                return BuscarUsuario?.Usuario;
+
+            }
+            catch
+            {
+                return null;
+            }
+
+        }
+
         public async Task<User?> GetByUsuario(string usuario)
         {
             try

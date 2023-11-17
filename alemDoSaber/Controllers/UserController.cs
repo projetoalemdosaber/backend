@@ -47,7 +47,6 @@ namespace RedeSocial.Controllers
             return Ok(Resposta);
         }
 
-        [Authorize]
         [HttpGet("email/{usuario}")]
         public async Task<ActionResult> GetByUsuario(string usuario)
         {

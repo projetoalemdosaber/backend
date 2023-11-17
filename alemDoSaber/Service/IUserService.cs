@@ -7,7 +7,9 @@ namespace RedeSocial.Service
         Task<IEnumerable<User>> GetAll();
 
         Task<User?> GetById(long id);
-        
+
+        Task<String?> GetByEmail(string usuario);
+
         Task<User?> GetByUsuario (string usuario);
         
         Task<User?> Create(User usuario);
